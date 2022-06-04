@@ -1,0 +1,7 @@
+.terraform
+*terraform.tfstate*
+.terraform.lock.hcl
+test*.sh
+test.tfvars
+oidc-thumbnail.sh
+kubeconfig
