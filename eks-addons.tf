@@ -44,4 +44,5 @@ resource "aws_eks_addon" "kube_proxy" {
   cluster_name  = aws_eks_cluster.this.name
   addon_name    = "kube-proxy"
   addon_version = var.kube_proxy_addon_version
+  resolve_conflicts = "OVERWRITE"
 }
