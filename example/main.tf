@@ -23,7 +23,7 @@ module "test" {
 
 module "eks-test" {
   source                = "../"
-  eks_version           = "1.22"
+  eks_version           = "1.25"
   enable_public_access  = true
   enable_private_access = true
   cluster_name          = "test"

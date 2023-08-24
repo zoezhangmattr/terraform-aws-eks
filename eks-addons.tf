@@ -1,9 +1,10 @@
 # vpc-cni
 resource "aws_eks_addon" "vpc-cni" {
-  cluster_name             = aws_eks_cluster.this.name
-  addon_name               = "vpc-cni"
-  addon_version            = var.vpc_cni_addon_version
-  service_account_role_arn = aws_iam_role.vpc-cni.arn
+  cluster_name                = aws_eks_cluster.this.name
+  addon_name                  = "vpc-cni"
+  addon_version               = var.vpc_cni_addon_version
+  service_account_role_arn    = aws_iam_role.vpc-cni.arn
+  resolve_conflicts_on_create = "OVERWRITE"
 }
 
 data "aws_iam_policy_document" "vpc_cni_assume_role_policy" {
@@ -35,14 +36,15 @@ resource "aws_iam_role_policy_attachment" "vpc-cni" {
 }
 # coredns
 resource "aws_eks_addon" "coredns" {
-  cluster_name  = aws_eks_cluster.this.name
-  addon_name    = "coredns"
-  addon_version = var.coredns_addon_version
+  cluster_name                = aws_eks_cluster.this.name
+  addon_name                  = "coredns"
+  addon_version               = var.coredns_addon_version
+  resolve_conflicts_on_create = "OVERWRITE"
 }
 # kube-proxy
 resource "aws_eks_addon" "kube_proxy" {
-  cluster_name  = aws_eks_cluster.this.name
-  addon_name    = "kube-proxy"
-  addon_version = var.kube_proxy_addon_version
-  resolve_conflicts = "OVERWRITE"
+  cluster_name                = aws_eks_cluster.this.name
+  addon_name                  = "kube-proxy"
+  addon_version               = var.kube_proxy_addon_version
+  resolve_conflicts_on_update = "OVERWRITE"
 }

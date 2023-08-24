@@ -1,6 +1,6 @@
 variable "eks_version" {
   type        = string
-  default     = "1.22"
+  default     = "1.25"
   description = "eks cluster version"
 }
 variable "enable_private_access" {
@@ -73,17 +73,17 @@ variable "cluster_service_ipv4_cidr" {
 variable "vpc_cni_addon_version" {
   type        = string
   description = "vpc cni addon version"
-  default     = "v1.10.1-eksbuild.1"
+  default     = "v1.13.4-eksbuild.1"
 }
 
 variable "kube_proxy_addon_version" {
   type        = string
   description = "kube-proxy addon version"
-  default     = "v1.22.6-eksbuild.1"
+  default     = "v1.25.6-eksbuild.1"
 }
 
 variable "coredns_addon_version" {
   type        = string
   description = "coredns addon version"
-  default     = "v1.8.7-eksbuild.1"
+  default     = "v1.9.3-eksbuild.5"
 }
