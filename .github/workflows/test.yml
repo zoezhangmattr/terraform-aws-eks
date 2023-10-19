@@ -1,0 +1,15 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: deploy
+        run: echo "hello world"
+        # ...deployment-specific steps
